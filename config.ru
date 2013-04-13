@@ -1,17 +1,17 @@
 require 'pp'
 $LOAD_PATH << Dir::pwd
 
-require 'config'
+require './config.rb'
 
-require 'tables'
-require 'signup'
-require 'login'
-require 'ranking'
-require 'announcements'
+require './tables.rb'
+require './signup.rb'
+require './login.rb'
+require './ranking.rb'
+require './announcements.rb'
 
-require 'admin'
+require './admin.rb'
 
-require 'scoreserver'
+require './scoreserver.rb'
 
 run Sinatra::Application
 
