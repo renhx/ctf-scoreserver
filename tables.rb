@@ -89,7 +89,8 @@ end
 ActiveRecord::Base.establish_connection(
   :adapter => 'sqlite3',
   :database => $db,
-  :timeout => 10000
+  :timeout => 10000,
+  :pool => 100,
 )
 
 class User < ActiveRecord::Base
