@@ -6,10 +6,10 @@ require 'digest/sha1'
 SCORESERVER_VERSION = "0.0.2"
 
 begin
-  require 'config.rb'
+  require './config.rb'
 rescue Exception => e
   # create default config.rb
-  open('config.rb', "w+") {|f|
+  open('./config.rb', "w+") {|f|
     f.puts <<-"EOS"
 COOKIE_SECRET   = "#{Digest::SHA1.hexdigest(Time.now.to_s)}"
 ADMIN_PASS_SHA1 = "08a567fa1a826eeb981c6762a40576f14d724849" #ctfadmin
@@ -18,15 +18,15 @@ HTML_TITLE = "scoreserver.rb CTF"
     EOS
     f.flush
   }
-  require 'config.rb'
+  require './config.rb'
 end
 
-require 'tables'
-require 'signup'
-require 'login'
-require 'ranking'
-require 'announcements'
-require 'admin'
+require './tables.rb'
+require './signup.rb'
+require './login.rb'
+require './ranking.rb'
+require './announcements.rb'
+require './admin.rb'
 
 require 'pp'
 

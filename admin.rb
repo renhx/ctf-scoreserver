@@ -3,7 +3,7 @@ require 'rubygems'
 require 'sinatra'
 require 'digest/sha1'
 
-require 'config.rb'
+require './config.rb'
 
 require 'json'
 require 'time'
