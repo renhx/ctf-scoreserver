@@ -67,10 +67,10 @@ helpers do
 
   def get_clear_status(cid)
     uid = session['uid']
-    a = Answer.find_by_user_id_and_challenge_id(uid, cid)
-    return false unless a
 
-    return true
+    a = Answer.find_by_user_id_and_challenge_id(uid, cid)
+
+    not a.nil?
   end
 end
 
