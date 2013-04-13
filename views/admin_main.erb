@@ -15,6 +15,7 @@
         <td>description</td>
         <td>point</td>
         <td>status</td>
+        <td>solved</td>
         <td>edit</td>
         <td>delete</td>
       </tr>
@@ -24,6 +25,7 @@
           <td><%=c.abstract%></td>
           <td><%=c.point%></td>
           <td><%=c.status%></td>
+          <td><%=c[:solved] ? 'yes' : 'no'%></td>
           <td><a href="#" onclick="on_edit(<%=c.id%>);">edit</a></td>
           <td><a href="#" onclick="on_delete(<%=c.id%>);">delete</a></td>
         </tr>
