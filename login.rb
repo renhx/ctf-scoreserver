@@ -48,8 +48,8 @@ post '/login' do
     redirect '/'
   end
 
-  u = User.find_by_email(email, :first)
-  if u != nil
+  u = User.find_by(email: email)
+  if u != nil and u.is_a?(User)
     if Digest::SHA1.hexdigest(password) == u.password
       session['uid'] = u.id
       session['dummy'] = Digest::SHA1.hexdigest(Time.new.to_s)

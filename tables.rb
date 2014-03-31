@@ -114,6 +114,10 @@ end
 
 class Challenge < ActiveRecord::Base
   has_many :answers
+
+  def solved?
+    !self.answers.empty?
+  end
 end
 
 class Answer < ActiveRecord::Base

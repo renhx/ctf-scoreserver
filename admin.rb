@@ -46,8 +46,7 @@ end
 
 get '/admin/main' do 
   admin_block do
-    @challenges = Challenge.find(:all)
-    @challenges.each { |c| c[:solved] = ! Answer.find_by_challenge_id(c.id).nil? }
+    @challenges = Challenge.all
     erb :admin_main
   end
 end
