@@ -56,7 +56,7 @@ post '/admin/load' do
   admin_block do
     content_type :json
     begin
-      c = Challenge.find_by_id(params['id'], :first)
+      c = Challenge.find(params['id'])
     rescue Exception => e
       pp e
     end
