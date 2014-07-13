@@ -128,7 +128,7 @@ end
 
 get '/challenge' do
   login_block do
-    cs = Challenge.find(:all, :order => 'id')
+    cs = Challenge.order('id')
 
     @challenges = []
     if cs
