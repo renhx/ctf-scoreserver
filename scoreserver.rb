@@ -162,7 +162,7 @@ get '/?' do
   session_clear
 
   limit = 5
-  @announcements = Announcement.where("show = 1").order("id desc").order("time desc").limit(limit)
+  @announcements = Announcement.where("show = 't'").order("id desc").order("time desc").limit(limit)
 
   erb :index
 end
