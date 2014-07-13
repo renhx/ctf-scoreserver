@@ -8,7 +8,7 @@ require 'time'
 get '/announcements' do
   limit = 7 
   page = params["page"].to_i
-  @announcements = Announcement.find(:all, :conditions => ['show = ?', true], :order => "time DESC", :limit => limit, :offset => page * limit)
+  @announcements = Announcement.where("show = 1").order("id desc").order("time desc").limit(limit).offset(page*limit)
   erb :announcements
 end
 

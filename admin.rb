@@ -109,7 +109,7 @@ end
 
 get '/admin/announcements' do
   admin_block do
-    @announcements = Announcement.find(:all, :order => "time DESC")
+    @announcements = Announcement.order("time DESC")
     erb :admin_announcements
   end
 end
@@ -118,7 +118,7 @@ post '/admin/load_announcement' do
   admin_block do
     content_type :json
     begin
-      a = Announcement.find_by_id(params['id'], :first)
+      a = Announcement.find(params['id'])
     rescue Exception => e
       pp e
     end
@@ -140,7 +140,7 @@ post '/admin/load_announcement' do
 end
 
 post '/admin/save_announcement' do 
-  a = Announcement.find_by_id(params['id'])
+  a = Announcement.find(params['id'])
   a ||= Announcement.new
 
   admin_block do

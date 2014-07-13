@@ -54,7 +54,7 @@ end
 #
 helpers do
   def get_score
-    u = User.find_by_id(get_uid)
+    u = User.find(get_uid)
     as = u.answers
     return 0 if as.nil?
 
@@ -162,7 +162,7 @@ get '/?' do
   session_clear
 
   limit = 5
-  @announcements = Announcement.find(:all, :conditions => ['show = ?', true], :order => "time DESC", :limit => limit)
+  @announcements = Announcement.where("show = 1").order("id desc").order("time desc").limit(limit)
 
   erb :index
 end
