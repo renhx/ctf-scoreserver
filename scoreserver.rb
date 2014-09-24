@@ -30,6 +30,7 @@ require './admin.rb'
 
 require 'pp'
 
+after { ActiveRecord::Base.connection.close }
 
 use Rack::Session::Cookie,
   :expire_after => 3600,
